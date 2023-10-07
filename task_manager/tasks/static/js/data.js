@@ -1,5 +1,34 @@
-const taskListElement = document.getElementById('task-list');
+
 const taskModal = document.getElementById('task-modal'); // Add this line to define taskModal
+
+
+const taskListElement = document.getElementById('task-list');
+const taskDetailModal = document.getElementById('task-detail-modal');
+const closeDetailModalButton = document.getElementById('close-detail-modal');
+const taskDetailTitleElement = document.getElementById('task-detail-title');
+const taskDetailDescriptionElement = document.getElementById('task-detail-description');
+
+// Function to create a task item element with click functionality
+function createTaskItem(task) {
+    const taskItem = document.createElement('li');
+    const taskButton = document.createElement('button');
+
+    taskButton.textContent = task.title;
+    taskButton.classList.add('task-button');
+
+    taskButton.addEventListener('click', function() {
+        // When a task title button is clicked, display a pop-up with title and description
+        taskDetailTitleElement.textContent = task.title;
+        taskDetailDescriptionElement.textContent = task.description;
+
+        taskDetailModal.style.display = 'block';
+        taskDetailModal.classList.add('animate-fade-in');
+    });
+
+    taskItem.appendChild(taskButton);
+
+    return taskItem;
+}
 
 // Function to fetch and display tasks
 function fetchAndDisplayTasks() {
@@ -9,10 +38,9 @@ function fetchAndDisplayTasks() {
             // Clear the current task list
             taskListElement.innerHTML = '';
 
-            // Display each task
+            // Display each task using createTaskItem function
             data.forEach(task => {
-                const taskItem = document.createElement('li');
-                taskItem.textContent = task.title;
+                const taskItem = createTaskItem(task);
                 taskListElement.appendChild(taskItem);
             });
         })
@@ -21,8 +49,18 @@ function fetchAndDisplayTasks() {
         });
 }
 
+// Close the task detail modal when the close button is clicked
+closeDetailModalButton.addEventListener('click', function() {
+    taskDetailModal.style.display = 'none';
+});
+
 // Fetch and display tasks when the page loads
 fetchAndDisplayTasks();
+
+
+
+
+
 
 const taskForm = document.getElementById('task-form');
 

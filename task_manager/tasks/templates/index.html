@@ -31,8 +31,18 @@
         </div>
     </div>
     <ul id="task-list">
-        <!-- Task items will be dynamically added here -->
+        
     </ul>
+    
+    <!-- Task Detail Modal -->
+    <div id="task-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-detail-modal">&times;</span>
+            <h2 id="task-detail-title"></h2>
+            <p id="task-detail-description"></p>
+        </div>
+    </div>
+    
 
     <script src="{% static 'js/animation.js' %}"></script>
     <script src="{% static 'js/data.js' %}"></script>

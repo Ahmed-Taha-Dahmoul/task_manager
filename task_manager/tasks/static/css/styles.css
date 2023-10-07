@@ -78,3 +78,23 @@ form {
     flex-direction: column;
     align-items: center;
 }
+
+/* Style for task buttons */
+.task-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Style for the close button */
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
