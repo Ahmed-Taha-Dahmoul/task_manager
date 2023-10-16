@@ -40,7 +40,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tasks',
     'rest_framework',
+    'drf_yasg',
 ]
+
+
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'api_version': '1.0',
+    'enabled_methods': [],
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
